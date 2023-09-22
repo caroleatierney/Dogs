@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function AddDog({getDogs}) {
+export default function AddDog() {
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
     const [newName, setNewName] = useState('')
@@ -20,7 +20,7 @@ export default function AddDog({getDogs}) {
                 bredFor: newBredFor,
                 breedGroup: newBreed,
             }),
-        }).then(() => getDogs())
+        })
 
         // set form fields to blank after update
         setNewName('')
@@ -29,8 +29,8 @@ export default function AddDog({getDogs}) {
     }
 
     return (
-        <div className="addDog">  
-        <hr></hr>
+        <div className="addDog">
+            <hr></hr>
             <h3>THIS IS THE ADD DOG COMPONENT</h3>
             <button onClick={addDog} className="addDog">Add Dog</button>
 
