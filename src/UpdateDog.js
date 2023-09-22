@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './UpdateDog.css';
+
 export default function UpdateDog({ getDogs, dogId }) {
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
@@ -31,7 +32,6 @@ export default function UpdateDog({ getDogs, dogId }) {
 
     return (
         <div className="updateDog">
-            <h3>THIS IS THE UPDATE DOG COMPONENT</h3>
             <button onClick={updateDog} className="updateDog">Update Dog</button>
 
             <form>

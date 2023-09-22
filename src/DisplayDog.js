@@ -35,15 +35,18 @@ export default function DisplayDog() {
             <h1>Dog names and breeds</h1>
             <AddDog getDogs={getDogs} />
             {dogs.map((dog, index) => (
+
                 <div className="mapContainer" key={index}>
-                    <UpdateDog dogId={dog.id} getDogs={getDogs} onUpdate={onUpdate} />
-                    <DeleteDog dogId={dog.id} getDogs={getDogs} onDelete={onDelete} />
-                    <div>
-                        <h6>this will be a card with an image</h6>
-                        <h1>Dog Name: {dog.dogName}</h1>
-                        <h3>Dog Breed: {dog.bredFor}</h3>
-                        <h3>Breed Group: {dog.breedGroup}</h3>
-                        <h1>Dog Id: {dog.id}</h1>
+                    <div className="card">
+                        <img className="card-img-top" src="..." alt="Card image cap"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Dog Name: {dog.dogName}</h5>
+                            <h5 className="card-title">Dog Breed: {dog.bredFor}</h5>
+                            <h5 className="card-title">Breed Group: {dog.breedGroup}</h5>
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <UpdateDog dogId={dog.id} getDogs={getDogs} onUpdate={onUpdate} />
+                            <DeleteDog dogId={dog.id} getDogs={getDogs} onDelete={onDelete} />
+                        </div>
                     </div>
                 </div>
             ))}

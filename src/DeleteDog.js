@@ -13,7 +13,6 @@ export default function DeleteDog({ dogId, onDelete, getDogs }) {
 
     return (
         <div className="deleteDog">
-            <h3>THIS IS THE DELETE DOGS COMPONENT</h3>
             <button onClick ={deleteDog} className="deleteDog">Delete</button>
         </div>
     );
