@@ -1,46 +1,46 @@
-import { useEffect, useState } from 'react'
-
-export default function AddDog() {
+import { useState } from 'react'
+import './UpdateDog.css';
+export default function UpdateDog({ getDogs, dogId }) {
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
-    const [newName, setNewName] = useState('')
-    const [newBredFor, setNewBredFor] = useState('')
-    const [newBreed, setNewBreed] = useState('')
+    const [updateName, setUpdateName] = useState('')
+    const [updateBredFor, setUpdateBredFor] = useState('')
+    const [updateBreedGroup, setUpdateBreedGroup] = useState('')
 
-    function addDog(e) {
+    const updateDog = (e,) =>  {
         e.preventDefault()
-        fetch(API_URL, {
-            method: 'POST',
+        let updatedDogObject = {
+            dogName: updateName,
+            bredFor: updateBredFor,
+            breedGroup: updateBreedGroup
+        }
+        fetch(API_URL + `/${dogId}`, {
+            method: 'PUT',
             headers:
             {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                dogName: newName,
-                bredFor: newBredFor,
-                breedGroup: newBreed,
-            }),
-        })
+            body: JSON.stringify(updatedDogObject),
+        }).then(() => getDogs())
 
         // set form fields to blank after update
-        setNewName('')
-        setNewBredFor('')
-        setNewBreed('')
+        setUpdateName('')
+        setUpdateBredFor('')
+        setUpdateBreedGroup('')
     }
 
     return (
-        <div className="addDog">
-            <hr></hr>
-            <h3>THIS IS THE ADD DOG COMPONENT</h3>
-            <button onClick={addDog} className="addDog">Add Dog</button>
+        <div className="updateDog">
+            <h3>THIS IS THE UPDATE DOG COMPONENT</h3>
+            <button onClick={updateDog} className="updateDog">Update Dog</button>
 
             <form>
-                <label>Add New Dog Name</label>
-                <input className="inputNew" onChange={(e) => setNewName(e.target.value)} value={newName}></input>
-                <label>Add New Dog Bred For</label>
-                <input className="inputNew" onChange={(e) => setNewBredFor(e.target.value)} value={newBredFor}></input>
-                <label>Add New Dog Breed</label>
-                <input className="inputNew" onChange={(e) => setNewBreed(e.target.value)} value={newBreed}></input>
+                <label>Update Dog Name</label>
+                <input onChange={(e) => setUpdateName(e.target.value)} value={updateName}></input>
+                <label>Update Dog Bred For</label>
+                <input onChange={(e) => setUpdateBredFor(e.target.value)} value={updateBredFor}></input>
+                <label>Update Dog Breed</label>
+                <input onChange={(e) => setUpdateBreedGroup(e.target.value)} value={updateBreedGroup}></input>
             </form>
         </div>
     )

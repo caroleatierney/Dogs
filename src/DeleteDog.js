@@ -1,8 +1,7 @@
 import React from 'react';
-// import '.DeleteDog.css';
+import './DeleteDog.css';
 
 export default function DeleteDog({ dogId, onDelete, getDogs }) {
-    console.log(getDogs)
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
     const deleteDog = () => {
@@ -13,8 +12,7 @@ export default function DeleteDog({ dogId, onDelete, getDogs }) {
     }
 
     return (
-        <div className="DeleteDogs">
-            <hr></hr>
+        <div className="deleteDog">
             <h3>THIS IS THE DELETE DOGS COMPONENT</h3>
             <button onClick ={deleteDog} className="deleteDog">Delete</button>
         </div>

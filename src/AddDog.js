@@ -30,7 +30,6 @@ export default function AddDog({getDogs}) {
 
     return (
         <div className="addDog">  
-        <hr></hr>
             <h3>THIS IS THE ADD DOG COMPONENT</h3>
             <button onClick={addDog} className="addDog">Add Dog</button>
 
