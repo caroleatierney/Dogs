@@ -7,23 +7,11 @@ export default function DisplayDogs() {
 
     const [updateName, setUpdateName] = useState('')
     const [updateBredFor, setUpdateBredFor] = useState('')
-    const [updateBreed, setUpdateBreed] = useState('')
+    const [updateBreedGroup, setUpdateBreedGroup] = useState('')
 
     const [newName, setNewName] = useState('')
     const [newBredFor, setNewBredFor] = useState('')
     const [newBreed, setNewBreed] = useState('')
-
-    const id = 0;
-    const dogName = '';
-    const bredFor = '';
-    const breedGroup = '';
-
-    const button = document.querySelector('button');
-
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Do something else
-    });
 
     useEffect(() => {
         getDogs()
@@ -44,18 +32,12 @@ export default function DisplayDogs() {
         }).then(() => getDogs())
     }
 
-    function updateDog(e, dogObject) {
-
-        
-        // console.log("e" + e)
-        // console.log("dogObject" + dogObject.id)
-        // console.log("id" + ${id})
-
+    function updateDog(id) {
+        // e.preventDefault()
         let updatedDogObject = {
-            ...dogObject,
             dogName: updateName,
             bredFor: updateBredFor,
-            breedGroup: updateBreed
+            breedGroup: updateBreedGroup
         }
 
         fetch(`${API_URL}/${id}`, {
@@ -66,7 +48,11 @@ export default function DisplayDogs() {
             },
             body: JSON.stringify(updatedDogObject),
         }).then(() => getDogs()) 
+
         // set form fields to blank after update
+        setUpdateName('')
+        setUpdateBredFor('')
+        setUpdateBreedGroup('')
     }
 
     function addDog(e) {
@@ -83,22 +69,28 @@ export default function DisplayDogs() {
                 breedGroup: newBreed,
             }),
         }).then(() => getDogs())
-        
+
         // set form fields to blank after update
+        setNewName('')
+        setNewBredFor('')
+        setNewBreed('')
     }
 
     return (
         <div className="DisplayDogs">
  
             <h1>List of 100 dogs because that is all I am paying for with MockAPI!</h1>
+            <h1>Need to try to filter out by breed type and</h1>
+            <h1>then certain fields to save in db file and udpate</h1>
+            <h1>all - stretch - especially photos</h1>
             <hr></hr>
             <form>
                 <label>Add New Dog Name</label>
-                <input className="inputNew" onChange={(e) => setNewName(e.target.value)}></input>
+                <input className="inputNew" onChange={(e) => setNewName(e.target.value)} value={newName}></input>
                 <label>Add New Dog Bred For</label>
-                <input className="inputNew" onChange={(e) => setNewBredFor(e.target.value)}></input>
+                <input className="inputNew" onChange={(e) => setNewBredFor(e.target.value)} value={newBredFor}></input>
                 <label>Add New Dog Breed</label>
-                <input className="inputNew" onChange={(e) => setNewBreed(e.target.value)}></input>
+                <input className="inputNew" onChange={(e) => setNewBreed(e.target.value)} value={newBreed}></input>
                 <button onClick={(e) => addDog(e)} className="addDog">Submit</button>
             </form>
             <hr></hr>
@@ -112,17 +104,17 @@ export default function DisplayDogs() {
                             <h3>Breed Group: {dog.breedGroup}</h3>
                             <h1>Dog Id: {dog.id}</h1>
 
-                            <button onClick={(e) => updateDog(dog.id)} className="updateDog">Update</button>
+                            <button onClick={() => updateDog(dog.id)} className="updateDog">Update</button>
                             <button onClick={() => deleteDog(dog.id)} className="deleteDog">Delete</button>
                             <hr></hr>
 
                             <form>
                                 <label>Update Dog Name</label>
-                                <input onChange={(e) => setUpdateName(e.target.value)}></input>
+                                <input onChange={(e) => setUpdateName(e.target.value)} value={updateName}></input>
                                 <label>Update Dog Bred For</label>
-                                <input onChange={(e) => setUpdateBredFor(e.target.value)}></input>
+                                <input onChange={(e) => setUpdateBredFor(e.target.value)} value={updateBredFor}></input>
                                 <label>Update Dog Breed</label>
-                                <input onChange={(e) => setUpdateBreed(e.target.value)}></input>
+                                <input onChange={(e) => setUpdateBreedGroup(e.target.value)} value={updateBreedGroup}></input>
                             </form>
                         </div>
                         <hr></hr>
