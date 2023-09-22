@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
-import './DisplayDogs.css'
-
+// import './DisplayDogs.css'
+import DeleteDog from './DeleteDog';
+import AddDog from './AddDog';
 export default function DisplayDogs() {
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
     const [dogs, setDogs] = useState([])
@@ -8,10 +9,6 @@ export default function DisplayDogs() {
     const [updateName, setUpdateName] = useState('')
     const [updateBredFor, setUpdateBredFor] = useState('')
     const [updateBreedGroup, setUpdateBreedGroup] = useState('')
-
-    const [newName, setNewName] = useState('')
-    const [newBredFor, setNewBredFor] = useState('')
-    const [newBreed, setNewBreed] = useState('')
 
     useEffect(() => {
         getDogs()
@@ -25,13 +22,7 @@ export default function DisplayDogs() {
                 // console.log(data)
         })
     }
-
-    function deleteDog(id) {
-        fetch(API_URL + `/${id}`, {
-            method: 'DELETE', 
-        }).then(() => getDogs())
-    }
-
+  
     function updateDog(id) {
         // e.preventDefault()
         let updatedDogObject = {
@@ -55,47 +46,24 @@ export default function DisplayDogs() {
         setUpdateBreedGroup('')
     }
 
-    function addDog(e) {
-        e.preventDefault()
-        fetch(API_URL, {
-            method: 'POST',
-            headers:
-            {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                dogName: newName,
-                bredFor: newBredFor,
-                breedGroup: newBreed,
-            }),
-        }).then(() => getDogs())
-
-        // set form fields to blank after update
-        setNewName('')
-        setNewBredFor('')
-        setNewBreed('')
+    const onAdd = () => {
+        AddDog()
     }
+
+    const onDelete = (dogId) => {
+        DeleteDog(dogId);
+    };
 
     return (
         <div className="DisplayDogs">
  
             <h1>List of 100 dogs because that is all I am paying for with MockAPI!</h1>
-            <h1>Need to try to filter out by breed type and</h1>
-            <h1>then certain fields to save in db file and udpate</h1>
-            <h1>all - stretch - especially photos</h1>
-            <hr></hr>
-            <form>
-                <label>Add New Dog Name</label>
-                <input className="inputNew" onChange={(e) => setNewName(e.target.value)} value={newName}></input>
-                <label>Add New Dog Bred For</label>
-                <input className="inputNew" onChange={(e) => setNewBredFor(e.target.value)} value={newBredFor}></input>
-                <label>Add New Dog Breed</label>
-                <input className="inputNew" onChange={(e) => setNewBreed(e.target.value)} value={newBreed}></input>
-                <button onClick={(e) => addDog(e)} className="addDog">Submit</button>
-            </form>
             <hr></hr>
                 {dogs.map((dog, index) => (
                     <div className="mapContainer" key={index}>
+
+                        <DeleteDog dogId={dog.id} onDelete={onDelete} />
+                        <AddDog onAdd={onAdd} />
 
                         <div>
                             <h6>this will be a card with an image</h6>
@@ -105,7 +73,6 @@ export default function DisplayDogs() {
                             <h1>Dog Id: {dog.id}</h1>
 
                             <button onClick={() => updateDog(dog.id)} className="updateDog">Update</button>
-                            <button onClick={() => deleteDog(dog.id)} className="deleteDog">Delete</button>
                             <hr></hr>
 
                             <form>

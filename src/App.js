@@ -1,11 +1,11 @@
 import './App.css';
-import DisplayDogs from './DisplayDogs';
+import DisplayDog from './DisplayDog';
 
 export default function App() {
   return (
     <>
       <div>
-        <DisplayDogs />
+        <DisplayDog />
       </div>
     </>
   );

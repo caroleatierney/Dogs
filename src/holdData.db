@@ -1,0 +1,26 @@
+[
+  {
+    "dogName": "Australian Shepherd",
+    "bredFor": "Sheep herding",
+    "breedGroup": "Herding",
+    "id": "1"
+  },
+  {
+    "dogName": "Samoyed",
+    "bredFor": "Herding reindeer, guardian, draft",
+    "breedGroup": "Working",
+    "id": "2"
+  },
+  {
+    "dogName": "Pomerainian",
+    "bredFor": "Companion",
+    "breedGroup": "Toy",
+    "id": "3"
+  },
+  {
+    "dogName": "Shetland Sheepdog",
+    "bredFor": "Sheep herding",
+    "breedGroup": "Herding",
+    "id": "4"
+  }
+]
