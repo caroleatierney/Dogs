@@ -4,14 +4,27 @@ import AddDog from './AddDog';
 import UpdateDog from './UpdateDog';
 import DeleteDog from './DeleteDog';
 
+// I used "thedogapi" to get the data I wanted to work with. I than updated MockAPI
+// with it so I could perform Full CRUD operations on the database and had some seed
+// data to start with.
 export default function DisplayDog() {
+    // This is my url for Mock API
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
+
+    // This is where I declare the use state hook
+    // use state sets the initial value
+    // dogs is the actual value and setDogs is a function that we call to update the state value
     const [dogs, setDogs] = useState([])
 
+    // the useEffect hook will run for every render
+    // and thus refresh the dogs we see in the app from
+    // what is actualy in our database
     useEffect(() => {
         getDogs()
     }, [])
 
+    // this function goes out to the MockAPI, gets the data
+    // converts it to json and sets the state with setDogs(data)
     function getDogs() {
         fetch(API_URL)
             .then((data) => data.json())
@@ -21,14 +34,23 @@ export default function DisplayDog() {
             })
     }
 
+    // ths passes the dog id to the update component
+    // so it can update the correct dog
     const onUpdate = (dogId) => {
         UpdateDog(dogId);
     };
 
+    // this passes the dog id to the delete component so it can delete the correct dog
     const onDelete = (dogId) => {
         DeleteDog(dogId);
     };
 
+    // this will display the main cards with all of the dogs in it
+    // when the update or delete buttins are clicked, the dogId variable is set
+    // to the dog's id that is being processed. The getDogs variable is set to the 
+    // actual getDogs function so it can be used in the udpate and delete components
+    // to update the current dogs state. Add dogs also passes in this function as a
+    // variable for the same reason.
     return (
         <div>
             <div>

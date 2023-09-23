@@ -1,4 +1,3 @@
-import './App.css';
 import DisplayDog from './DisplayDog';
 
 export default function App() {
