@@ -39,6 +39,13 @@ export default function UpdateDog({ getDogs, dogId }) {
 
     return (
         <>
+
+            <div className="text-center">
+                <Button variant="info" onClick={handleShow} >
+                    Update a dog!
+                </Button>
+            </div>
+
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
                     <div className="flex flex-row text-center">
@@ -64,9 +71,6 @@ export default function UpdateDog({ getDogs, dogId }) {
                         <label>Add New Dog Image</label>
                         <input className="m-1" onChange={(e) => setUpdateImage(e.target.value)} value={updateImage}></input>
 
-                        <div className="text-center">
-                            <button onClick={updateDog} className="m-1">Add Dog</button>
-                        </div>
                         <div className="text-center">
                             <button type="button" onClick={updateDog} className="btn btn-secondary p-2 m-2">Update Dog</button>
                         </div>

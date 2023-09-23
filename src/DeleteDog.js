@@ -13,7 +13,7 @@ export default function DeleteDog({ dogId, onDelete, getDogs }) {
 
     return (
         <div className="text-center">
-            <button type="button" onClick={deleteDog} className="btn btn-secondary p-2 m-2">  Delete Dog  </button>
+            <button type="button" onClick={deleteDog} className="btn btn-success p-2 m-2">  Delete Dog  </button>
         </div>
     );
 }
