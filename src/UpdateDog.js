@@ -2,17 +2,21 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 export default function UpdateDog({ getDogs, dogId }) {
+    // API URL used to update MockAPI
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
+    // state update state variables and state update function used in update form and set to null
     const [updateName, setUpdateName] = useState('')
     const [updateBredFor, setUpdateBredFor] = useState('')
     const [updateBreedGroup, setUpdateBreedGroup] = useState('')
     const [updateImage, setUpdateImage] = useState('')
 
+    // react bootstrap modal variables   
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // when update button is clicked, the uodated object is put as a string to MockAPI
     const updateDog = (e,) =>  {
         e.preventDefault()
         let updatedDogObject = {
@@ -37,9 +41,9 @@ export default function UpdateDog({ getDogs, dogId }) {
         setUpdateImage('')
     }
 
+    // react bootstrap modal used to only display form fields if user wants to update a dog
     return (
         <>
-
             <div className="text-center">
                 <Button variant="info" onClick={handleShow} >
                     Update a dog!

@@ -2,17 +2,22 @@ import { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 export default function AddDog({ getDogs }) {
+
+    // API URL used to update MockAPI
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
+    // state add state variables and state update function used in add form and set to null
     const [newName, setNewName] = useState('')
     const [newBredFor, setNewBredFor] = useState('')
     const [newBreed, setNewBreed] = useState('')
     const [newImage, setNewImage] = useState('')
 
+    // react bootstrap modal variables   
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    // when add button is clicked, the new object is posted as a string to MockAPI
     function addDog(e) {
         e.preventDefault()
         fetch(API_URL, {
@@ -36,6 +41,7 @@ export default function AddDog({ getDogs }) {
         setNewImage('')
     }
 
+    // react bootstrap modal used to only display form fields if user wants to add a dog
     return (
         <>
         <div className="text-center">
