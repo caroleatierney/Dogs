@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function AddDog({getDogs}) {
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
@@ -29,16 +29,18 @@ export default function AddDog({getDogs}) {
     }
 
     return (
-        <div className="addDog">  
-            <button onClick={addDog} className="addDog">Add Dog</button>
-
+        <div className="text-center">  
             <form>
-                <label>Add New Dog Name</label>
-                <input className="inputNew" onChange={(e) => setNewName(e.target.value)} value={newName}></input>
-                <label>Add New Dog Bred For</label>
-                <input className="inputNew" onChange={(e) => setNewBredFor(e.target.value)} value={newBredFor}></input>
-                <label>Add New Dog Breed</label>
-                <input className="inputNew" onChange={(e) => setNewBreed(e.target.value)} value={newBreed}></input>
+                <div className="form-group text-center">
+                    <label>Add New Dog Name</label>
+                    <input type="text" className="form-control" onChange={(e) => setNewName(e.target.value)} value={newName}></input>
+                    <label>Add New Dog Bred For</label>
+                    <input type="text" className="form-control" onChange={(e) => setNewBredFor(e.target.value)} value={newBredFor}></input>
+                    <label>Add New Dog Breed</label>
+                    <input type="text" className="form-control" onChange={(e) => setNewBreed(e.target.value)} value={newBreed}></input>
+
+                    <button type="button" onClick={addDog} className="btn btn-secondary">Add Dog</button>
+                </div>
             </form>
         </div>
     )

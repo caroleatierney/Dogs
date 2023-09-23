@@ -32,21 +32,20 @@ export default function DisplayDog() {
     return (
         <div>
             <div>
-                <h1>Dog names and breeds</h1>
-                <h2>Stretch - Only display forms if button clicked</h2>
+                <h1 className="text-center">Dog names and breeds</h1>
                 <AddDog getDogs={getDogs} />
             </div>
-            <div className="displayDog">
+            <div className="displayDog text-center">
                 {dogs.map((dog, index) => (
 
-                    <div className="mapContainer" key={index}>
+                    <div className="mapContainer d-inline-flex flex-row p-2 m-2 justify-content-around" key={index}>
                         <div className="card border border-primary" style={{ width: '18rem' }}>
-                            <img className="card-img-top" src={dog.imageSrc} alt="Future dog image"/>
+                            <img className="card-img-top" src={dog.imageSrc} alt="Dog Image"/>
                             <div className="card-body">
-                                <h5 className="card-title">Dog Name: {dog.dogName}</h5>
-                                <h5 className="card-title">Dog Breed: {dog.bredFor}</h5>
+                                <h5 className="card-title" style={{ height: '3rem' }}>Dog Name: {dog.dogName}</h5>
+                                <h5 className="card-title" style={{ height: '4rem' }}>Dog Breed: {dog.bredFor}</h5>
                                 <h5 className="card-title">Breed Group: {dog.breedGroup}</h5>
-                                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p className="card-text" style={{ height: '6rem' }}>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <UpdateDog dogId={dog.id} getDogs={getDogs} onUpdate={onUpdate} />
                                 <DeleteDog dogId={dog.id} getDogs={getDogs} onDelete={onDelete} />
                             </div>

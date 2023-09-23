@@ -32,14 +32,21 @@ export default function UpdateDog({ getDogs, dogId }) {
 
     return (
         <div className="updateDog">
-            <form id="updateForm">
-                <label>Update Dog Name</label>
-                <input onChange={(e) => setUpdateName(e.target.value)} value={updateName}></input>
-                <label>Update Dog Bred For</label>
-                <input onChange={(e) => setUpdateBredFor(e.target.value)} value={updateBredFor}></input>
-                <label>Update Dog Breed</label>
-                <input onChange={(e) => setUpdateBreedGroup(e.target.value)} value={updateBreedGroup}></input>
-                <button id="updateDogId" onClick={updateDog} className="updateDog">Update Dog</button>
+            <form>
+                <div className="form-group text-center">
+
+                    <label>Update Dog Name</label>
+                    <input type="text" className="form-control" onChange={(e) => setUpdateName(e.target.value)} value={updateName}></input>
+
+                    <label>Update Dog Bred For</label>
+                        <input type="text" className="form-control" onChange={(e) => setUpdateBredFor(e.target.value)} value={updateBredFor}></input>
+
+                    <label>Update Dog Breed</label>
+                        <input type="text" className="form-control" onChange={(e) => setUpdateBreedGroup(e.target.value)} value={updateBreedGroup}></input>
+
+                    <button type="button" onClick={updateDog} className="btn btn-secondary p-2 m-2">Update Dog</button>
+
+                </div>
             </form>
         </div>
     )
