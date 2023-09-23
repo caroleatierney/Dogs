@@ -3,24 +3,28 @@
     "dogName": "Australian Shepherd",
     "bredFor": "Sheep herding",
     "breedGroup": "Herding",
+    "imageSrc": "https://cdn2.thedogapi.com/images/B1-llgq4m.jpg",
     "id": "1"
   },
   {
     "dogName": "Samoyed",
     "bredFor": "Herding reindeer, guardian, draft",
     "breedGroup": "Working",
+    "imageSrc": "https://cdn2.thedogapi.com/images/S1T8Ee9Nm.jpg",
     "id": "2"
   },
   {
     "dogName": "Pomerainian",
     "bredFor": "Companion",
     "breedGroup": "Toy",
+    "imageSrc": "https://cdn2.thedogapi.com/images/HJd0XecNX.jpg",
     "id": "3"
   },
   {
     "dogName": "Shetland Sheepdog",
     "bredFor": "Sheep herding",
     "breedGroup": "Herding",
+    "imageSrc": "https://cdn2.thedogapi.com/images/rJa29l9E7.jpg",
     "id": "4"
   }
 ]

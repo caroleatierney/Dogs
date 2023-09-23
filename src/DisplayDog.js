@@ -33,6 +33,7 @@ export default function DisplayDog() {
         <div>
             <div>
                 <h1>Dog names and breeds</h1>
+                <h2>Stretch - Only display forms if button clicked</h2>
                 <AddDog getDogs={getDogs} />
             </div>
             <div className="displayDog">
@@ -40,7 +41,7 @@ export default function DisplayDog() {
 
                     <div className="mapContainer" key={index}>
                         <div className="card border border-primary" style={{ width: '18rem' }}>
-                            <img className="card-img-top" src="..." alt="Future dog image"/>
+                            <img className="card-img-top" src={dog.imageSrc} alt="Future dog image"/>
                             <div className="card-body">
                                 <h5 className="card-title">Dog Name: {dog.dogName}</h5>
                                 <h5 className="card-title">Dog Breed: {dog.bredFor}</h5>
