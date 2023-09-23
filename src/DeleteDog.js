@@ -12,8 +12,8 @@ export default function DeleteDog({ dogId, onDelete, getDogs }) {
     }
 
     return (
-        <div className="deleteDog">
-            <button onClick ={deleteDog} className="deleteDog">Delete</button>
+        <div id="deleteDog">
+            <button id="deleteButton" onClick ={deleteDog} >Delete</button>
         </div>
     );
 }

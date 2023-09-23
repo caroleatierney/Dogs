@@ -32,15 +32,14 @@ export default function UpdateDog({ getDogs, dogId }) {
 
     return (
         <div className="updateDog">
-            <button onClick={updateDog} className="updateDog">Update Dog</button>
-
-            <form>
+            <form id="updateForm">
                 <label>Update Dog Name</label>
                 <input onChange={(e) => setUpdateName(e.target.value)} value={updateName}></input>
                 <label>Update Dog Bred For</label>
                 <input onChange={(e) => setUpdateBredFor(e.target.value)} value={updateBredFor}></input>
                 <label>Update Dog Breed</label>
                 <input onChange={(e) => setUpdateBreedGroup(e.target.value)} value={updateBreedGroup}></input>
+                <button id="updateDogId" onClick={updateDog} className="updateDog">Update Dog</button>
             </form>
         </div>
     )

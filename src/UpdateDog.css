@@ -1,3 +1,14 @@
 .updateDog {
     background-color: cornflowerblue;
 }
+
+#updateForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#updateDogId {
+    background-color:rgb(232, 164, 195);
+}

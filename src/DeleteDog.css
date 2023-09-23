@@ -1,3 +1,11 @@
-.deleteDog {
-    background-color: rgb(90, 208, 54);
+#deleteDog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(232, 192, 113);
+}
+
+#deleteButton {
+    background-color: blueviolet;
 }
