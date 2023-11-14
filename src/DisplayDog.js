@@ -46,10 +46,10 @@ export default function DisplayDog() {
     };
 
     // this will display the main cards with all of the dogs in it
-    // when the update or delete buttins are clicked, the dogId variable is set
+    // when the update or delete buttons are clicked, the dogId variable is set
     // to the dog's id that is being processed. The getDogs variable is set to the 
-    // actual getDogs function so it can be used in the udpate and delete components
-    // to update the current dogs state. Add dogs also passes in this function as a
+    // actual getDogs function so it can be used in the update and delete components
+    // to update the current dog's state. Add dogs also passes in this function as a
     // variable for the same reason.
     return (
         <div>

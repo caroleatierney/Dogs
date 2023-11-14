@@ -5,7 +5,7 @@ export default function UpdateDog({ getDogs, dogId }) {
     // API URL used to update MockAPI
     const API_URL = 'https://650c4ed847af3fd22f67714a.mockapi.io/Dogs_APP/dogs'
 
-    // state update state variables and state update function used in update form and set to null
+    // set update state variables and state update function used in update form and set to null
     const [updateName, setUpdateName] = useState('')
     const [updateBredFor, setUpdateBredFor] = useState('')
     const [updateBreedGroup, setUpdateBreedGroup] = useState('')
@@ -16,7 +16,7 @@ export default function UpdateDog({ getDogs, dogId }) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // when update button is clicked, the uodated object is put as a string to MockAPI
+    // when update button is clicked, the updated object is put as a string to MockAPI
     const updateDog = (e,) =>  {
         e.preventDefault()
         let updatedDogObject = {
