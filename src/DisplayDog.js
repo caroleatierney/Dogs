@@ -66,7 +66,7 @@ export default function DisplayDog() {
                             <div className="card-body">
                                 <h5 className="card-title" style={{ height: '3rem' }}>Dog Name: {dog.dogName}</h5>
                                 <h5 className="card-title" style={{ height: '4rem' }}>Dog Breed: {dog.bredFor}</h5>
-                                <h5 className="card-title">Breed Group: {dog.breedGroup}</h5>
+                                <h5 className="card-title">Breed Group Test: {dog.breedGroup}</h5>
                                 <p className="card-text" style={{ height: '6rem' }}>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <UpdateDog dogId={dog.id} getDogs={getDogs} onUpdate={onUpdate} />
                                 <DeleteDog dogId={dog.id} getDogs={getDogs} onDelete={onDelete} />
